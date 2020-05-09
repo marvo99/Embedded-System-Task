@@ -1,0 +1,80 @@
+[
+    {
+        "id": "8544c28d.4baed",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "cc09556f.760ac8",
+        "type": "function",
+        "z": "8544c28d.4baed",
+        "name": "If Clear Weather",
+        "func": "if (msg.payload.weather === 'Clear') {\n msg.payload ='Clear skies ahead today!'\n return msg;\n}\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 480,
+        "y": 380,
+        "wires": [
+            [
+                "30c66c81.4967f4"
+            ]
+        ]
+    },
+    {
+        "id": "30c66c81.4967f4",
+        "type": "twitter out",
+        "z": "8544c28d.4baed",
+        "twitter": "",
+        "name": "Tweet",
+        "x": 670,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5f273172.a7b7b",
+        "type": "openweathermap in",
+        "z": "8544c28d.4baed",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Nairobi",
+        "country": "Kenya",
+        "language": "en",
+        "x": 240,
+        "y": 240,
+        "wires": [
+            [
+                "cc09556f.760ac8",
+                "86da267.0e87fd8"
+            ]
+        ]
+    },
+    {
+        "id": "86da267.0e87fd8",
+        "type": "debug",
+        "z": "8544c28d.4baed",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 570,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "40571496.d6c14c",
+        "type": "comment",
+        "z": "8544c28d.4baed",
+        "name": "",
+        "info": "Name: Okero, Marvin Otieno\nAdmission Number: 100038\nDate: 07/05/2020",
+        "x": 180,
+        "y": 140,
+        "wires": []
+    }
+]
